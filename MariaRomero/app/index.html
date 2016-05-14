@@ -1,0 +1,44 @@
+<<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lions, Tigers, and Bears - oh my!</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body ng-app="ohMyApp">
+
+    <main>
+      <section data-ng-controller="LionsController as lionsCtrl"
+        data-ng-init="lionsCtrl.getAll()">
+
+        <form data-ng-submit="lionsCtrl.createLion()">
+          <label for="name">Name</label>
+          <input type="text" name="name" data-ng-model="lionsCtrl.newLion.name">
+
+          <label for="variety">Variety</label>
+          <input type="text" name="variety" data-ng-model="lionsCtrl.newLion.variety">
+
+          <label for="location">Location</label>
+          <input type="text" name="location" data-ng-model="lionsCtrl.newLion.location">
+
+          <label for="continent">Continent</label>
+          <input type="text" name="continent" data-ng-model="lionsCtrl.newLion.continent">
+
+          <label for="nemesis">Nemesis</label>
+          <input type="text" name="nemesis" data-ng-model="liondCtrl.newLion.nemesis"
+          placeholder="poachers">
+
+          <button type="submit">Create Lion</button>
+        </form>
+
+        <ul id="lionsList">
+          <li data-ng-repeat="lion in lionsCtrl.lions">
+            {{ lion.name }} is a {{ lion.variety }} lion from {{ lion.location }}
+            in {{ lion.continent }}.  His nemesis is {{ lion.nemesis }}.
+          </li>
+        </ul>
+
+    <script src="./bundle.js"</script>
+  </body>
+</html>
